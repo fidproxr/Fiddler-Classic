@@ -40,7 +40,7 @@ Captured traffic can be reproduced under controlled conditions. Composer allows 
 
 For example, if a POST request returns `400 Bad Request`, replay the same transaction while changing only one variable at a time. Correct the `Content-Type` header, remove a questionable JSON property, replace an expired bearer token, or adjust a query parameter. If the response changes after one modification, the test provides a stronger diagnostic signal than repeatedly exercising the full user interface.
 
-Request and response breakpoints can be used when traffic must be altered while the client is running. An outbound breakpoint pauses a request before it reaches the server, allowing headers or body content to be edited. An inbound breakpoint pauses the response before the client receives it, which is useful for testing how the application handles alternative status codes, modified headers, or unexpected payload values.
+Request and response breakpoints are useful when network traffic needs to be modified during an active client session. A request breakpoint stops outbound traffic before it is sent to the server, making it possible to adjust headers or change the request body. A response breakpoint interrupts inbound traffic before it reaches the client, allowing testers to evaluate application behavior with different status codes, altered headers, or modified response data.
 
 AutoResponder can support frontend and integration testing by returning controlled content for matching requests. Keep such rules narrowly scoped so they do not affect unrelated hosts or sessions.
 
